@@ -7,6 +7,11 @@ const [pokemon , setPokemon] = useState([]);
 const [Loading , setLoading] = useState(true);
 const [error , setError] = useState(null);
 const [search , setSearch] = useState("");
+
+// pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pokemonsPerPage] = useState(12); // fixed number
+
  const API= "https://pokeapi.co/api/v2/pokemon?limit=124";
 
 
@@ -41,11 +46,20 @@ useEffect(()=>{
     fetchPokemon();
 },[]);
       
-//search functionality 
- const searchData =pokemon.filter((curPokemon)=>
-    curPokemon.name.toLowerCase().includes(search.toLowerCase())
+// search functionality
+const filteredPokemon = pokemon.filter((curPokemon) =>
+  curPokemon.name.toLowerCase().includes(search.toLowerCase())
 );
 
+// pagination logic
+const indexOfLastPokemon = currentPage * pokemonsPerPage;
+const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
+const currentPokemons = filteredPokemon.slice(
+  indexOfFirstPokemon,
+  indexOfLastPokemon
+);
+
+const totalPages = Math.ceil(filteredPokemon.length / pokemonsPerPage);
 
 
 if(Loading){
@@ -75,12 +89,32 @@ if(error){
         </div>
         <div>
             <ul className="cards">
-             {searchData.map((curPokemon)=> {
+             {currentPokemons.map((curPokemon)=> {
                  return(
                  <PokemonCards key={curPokemon.id} pokemonData={curPokemon}/>
                 ) ;
                 }) }
             </ul>
+        </div>
+        {/* Pagination controls */}
+        <div className="pagination">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            Prev
+          </button>
+
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            Next
+          </button>
         </div>
     </section>
     </>
