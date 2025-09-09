@@ -1,12 +1,32 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Pokémon Project
+Welcome to the Pokémon Project!  
+Catch ‘em all (or at least browse and search them) with a fun card layout, bouncy colors, and a smooth search bar. This is a simple, responsive web app built with React and JavaScript — and you can even add a bouncing pokeball if you want!
 
-Currently, two official plugins are available:
+## What’s Included
+- Search for your favorite Pokémon
+- View Pokémon in pretty, responsive cards
+- Fun hover effects and bright highlights
+- Super simple interface, works on mobile
+- Optional: animated pokeball bouncing across your screen for a bit of fun
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Use
+1. Clone this repo:
+    ```bash
+    git clone https://github.com/ayushi-rolt/pokemon-project.git
+    ```
+2. cd into the pokemon_react folder and run the command `npm run dev`
+3. Start typing a Pokémon name in the search bar — cards show up below!
+4. Try hovering on different cards to see the animations.
 
-## Expanding the ESLint configuration
+No complicated setup or installations. Just open, search, and enjoy.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Customizing
+Want Pokeball to roll across your screen? Check out the README for the code snippet and instructions!  
+You can also tweak colors, fonts, or grid layouts by editing the CSS in `index.css`.
+
+
+
+
+
+
